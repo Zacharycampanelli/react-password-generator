@@ -11,8 +11,7 @@ const PasswordOutput = ({password}) => {
       <button onClick={() =>  navigator.clipboard.writeText(password)}>
       <CopyIcon className="absolute right-10 top-10"  />
       </button>
-      {/* <input variant="outlined"  className="bg-darkGray border-none text-white" /> */}
-      {/* <input id="password" sizing="md" type="text" color="darkGray" className="bg-darkGray" /> */}
+
     </div>
   );
 };
