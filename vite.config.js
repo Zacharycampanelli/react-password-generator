@@ -8,7 +8,7 @@ export default defineConfig({
     react(),
     tailwindcss(),
     svgr({
-      exportAsDefault: true,
+      // exportAsDefault: true,
     }),
   ],
 });
