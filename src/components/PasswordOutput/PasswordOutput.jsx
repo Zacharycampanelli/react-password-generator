@@ -1,4 +1,4 @@
-import CopyIcon from "../../assets/images/icon-copy.svg";
+import {ReactComponent as CopyIcon} from "../../assets/images/icon-copy.svg";
 
 const PasswordOutput = ({password}) => {
   return (
