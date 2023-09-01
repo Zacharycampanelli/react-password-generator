@@ -6,7 +6,6 @@ function Slider() {
 
   const handleChange = (event) => {
     passwordContext.dispatch({type: 'SET_LENGTH', payload: event.target.value});
-    console.log(passwordContext.state.length)
   };
 
   const fillStyle = {
