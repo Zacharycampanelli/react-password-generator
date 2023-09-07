@@ -2,6 +2,7 @@ import React, { useReducer, useState } from "react";
 import Header from "./components/Header/Header";
 import PasswordOutput from "./components/PasswordOutput/PasswordOutput";
 import PasswordInput from "./components/PasswordInput/PasswordInput";
+import PasswordStrength2 from "./components/StrengthMeter/PasswordStrength2";
 
 export const PasswordContext = React.createContext();
 
@@ -36,17 +37,18 @@ function App() {
   const [state, dispatch] = useReducer(reducer, initialChoiceState);
 
   return (
-    <PasswordContext.Provider value={{state, dispatch}}>
+    <PasswordStrength2/>    
+    // <PasswordContext.Provider value={{state, dispatch}}>
 
-    <div className="bg-black">
-      <div className="container flex flex-col items-center">
-        <Header />
-        <PasswordOutput password={password} />
-        <PasswordInput />
+    // <div className="bg-black">
+    //   <div className="container flex flex-col items-center min-w-[90%]">
+    //     <Header />
+    //     <PasswordOutput password={password} />
+    //     <PasswordInput />
        
-      </div>
-    </div>
-    </PasswordContext.Provider>
+    //   </div>
+    // </div>
+    // </PasswordContext.Provider>
   );
 }
 
