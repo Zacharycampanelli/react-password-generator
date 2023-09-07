@@ -1,6 +1,6 @@
 import Checklist from "../Checklist/Checklist";
 import Slider from "../Slider/Slider";
-import PasswordStrength from "../StrengthMeter/PasswordStrength";
+import PasswordStrength2 from "../StrengthMeter/PasswordStrength2";
 import StrengthMeter from "../StrengthMeter/StrengthMeter";
 
 const PasswordInput = () => {
@@ -9,7 +9,7 @@ const PasswordInput = () => {
        <Slider />
        <Checklist />
        {/* <StrengthMeter /> */}
-       <PasswordStrength password={'password'} />
+       <PasswordStrength2 password={'password'} />
     </div>
   )
 }

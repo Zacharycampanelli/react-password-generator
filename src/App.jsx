@@ -37,18 +37,18 @@ function App() {
   const [state, dispatch] = useReducer(reducer, initialChoiceState);
 
   return (
-    <PasswordStrength2/>    
-    // <PasswordContext.Provider value={{state, dispatch}}>
+   
+    <PasswordContext.Provider value={{state, dispatch}}>
 
-    // <div className="bg-black">
-    //   <div className="container flex flex-col items-center min-w-[90%]">
-    //     <Header />
-    //     <PasswordOutput password={password} />
-    //     <PasswordInput />
+    <div className="bg-black">
+      <div className="container flex flex-col items-center min-w-[90%]">
+        <Header />
+        <PasswordOutput password={password} />
+        <PasswordInput />
        
-    //   </div>
-    // </div>
-    // </PasswordContext.Provider>
+      </div>
+    </div>
+    </PasswordContext.Provider>
   );
 }
 

@@ -23,7 +23,7 @@ function PasswordStrength2() {
 
     for (let i = 0; i < 5; i++) {
       const segmentColor = i < strengthScore ? 'green' : 'lightgray';
-      segments.push(<div className="segment" style={{ backgroundColor: segmentColor }} key={i}></div>);
+      segments.push(<div className="segment" style={{ backgroundColor: segmentColor, width: '10%', height: '2rem', margin: '10px' }} key={i}></div>);
     }
 
     return segments;
@@ -45,7 +45,7 @@ function PasswordStrength2() {
         value={password}
         onChange={handlePasswordChange}
       />
-      <div id="password-strength-meter">
+      <div id="password-strength-meter" className='flex flex-row'>
         {renderSegments()}
       </div>
     </div>
