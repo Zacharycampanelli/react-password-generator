@@ -39,7 +39,7 @@ console.log(strength)
         <div
           className="progress-bar"
           role="progressbar"
-          style={{ width: "25%", background: 'red' }}
+          style={{ width: "205%", background: 'red' }}
           aria-valuenow="15"
           aria-valuemin="0"
           aria-valuemax="100"
@@ -50,7 +50,7 @@ console.log(strength)
       else return (<div
         className="progress-bar"
         role="progressbar"
-      //   style={{ width: "25%" }}
+        style={{ width: "255%" }}
         aria-valuenow="15"
         aria-valuemin="0"
         aria-valuemax="100"

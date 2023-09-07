@@ -25,7 +25,7 @@ const reducer = (state, action) => {
     case 'USE_SYMBOLS':
       return {...state, symbols: !state.symbols}
     case 'SET_LENGTH':
-      return {...state, length: action.payload}
+      return {...state, length: parseInt(action.payload)}
     default: 
       return state
   }

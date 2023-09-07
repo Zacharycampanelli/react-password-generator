@@ -1,4 +1,5 @@
 import Checklist from "../Checklist/Checklist";
+import GeneratePassword from "../GeneratePassword/GeneratePassword";
 import Slider from "../Slider/Slider";
 import PasswordStrength2 from "../StrengthMeter/PasswordStrength2";
 import StrengthMeter from "../StrengthMeter/StrengthMeter";
@@ -10,6 +11,7 @@ const PasswordInput = () => {
        <Checklist />
        {/* <StrengthMeter /> */}
        <PasswordStrength2 password={'password'} />
+       <GeneratePassword/>
     </div>
   )
 }

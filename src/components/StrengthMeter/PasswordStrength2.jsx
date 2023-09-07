@@ -1,50 +1,83 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { PasswordContext } from "../../App";
+
+const isBoolean = (n) => {
+  return typeof n === 'boolean';
+}
 
 function PasswordStrength2() {
-  const [password, setPassword] = useState('');
-  const [strengthScore, setStrengthScore] = useState(0);
-
+  const passwordContext = useContext(PasswordContext);
+  const [password, setPassword] = useState('ABCD');
+  const [strength, setStrength] = useState(2);
+  const [strengthText, setStrengthText] = useState('')
+  console.log(passwordContext)
   // Create a function to calculate the password strength
   const calculatePasswordStrength = (password) => {
-    // Replace this with your own password strength calculation logic
-    const lengthScore = Math.min(password.length / 8, 1);
-    const uppercaseScore = /[A-Z]/.test(password) ? 1 : 0;
-    const lowercaseScore = /[a-z]/.test(password) ? 1 : 0;
-    const digitScore = /\d/.test(password) ? 1 : 0;
-    const specialCharScore = /[!@#$%^&*()_+{}\[\]:;<>,.?~\\-]/.test(password) ? 1 : 0;
+let state = passwordContext.state;    
 
-    const totalScore = lengthScore + uppercaseScore + lowercaseScore + digitScore + specialCharScore;
-    return totalScore;
-  };
+      let strengthTexts = [
+        "TOO WEAK!",
+        "WEAK",
+        "MEDIUM",
+        "STRONG",
+      ];
+      console.log(typeof state.uppercase)
+
+     for (let value in state) {
+      console.log(state[value])
+      if (isBoolean(state[value])) {
+        setStrength(prev => prev += 1);
+        console.log('yes')
+      }
+      console.log(strength)
+     }
+  
+      // for ( choice in passwordContext) {
+      //   console.log(choice)
+      //   if (choices[choice] === true) {
+      //     setStrength(prev => prev += 1);
+      //     console.log(strength)
+      //   }
+      // }
+      if (state.length >= 8) {
+          setStrength(prev => prev += 1);
+      }
+  console.log(strength)
+      return { text: strengthText[strength], value: strength };
+    };
+
 
   // Create a function to render the password strength meter segments
   const renderSegments = () => {
+
     const segments = [];
 
-    for (let i = 0; i < 5; i++) {
-      const segmentColor = i < strengthScore ? 'green' : 'lightgray';
-      segments.push(<div className="segment" style={{ backgroundColor: segmentColor, width: '10%', height: '2rem', margin: '10px' }} key={i}></div>);
+    for (let i = 0; i < strength; i++) {
+      const segmentColor = i < strength ? 'green' : 'transparent';
+      const outline = i < strength ? 'transparent' : 'white'
+      segments.push(<div className="segment" style={{ backgroundColor: segmentColor, width: '5%', height: '1.5rem', marginLeft: '0.5rem', border: `1px solid ${outline}` }} key={i}></div>);
     }
 
     return segments;
   };
 
   // Create a function to handle password input changes
-  const handlePasswordChange = (e) => {
-    const newPassword = e.target.value;
-    setPassword(newPassword);
-    const newStrengthScore = calculatePasswordStrength(newPassword);
-    setStrengthScore(newStrengthScore);
-  };
+  // useEffect((e) => {
+  //   const newPassword = e.target.value;
+  //   setPassword(newPassword);
+  //   const newStrengthScore = calculatePasswordStrength(newPassword);
+  //   console.log(newStrengthScore)
+  //   setStrength(newStrengthScore);
+  // }, [password]);
 
   return (
     <div>
-      <input
+      {/* <input
         type="password"
         placeholder="Enter your password"
         value={password}
         onChange={handlePasswordChange}
-      />
+      /> */}
       <div id="password-strength-meter" className='flex flex-row'>
         {renderSegments()}
       </div>
