@@ -7,11 +7,12 @@ const isBoolean = (n) => {
 
 function PasswordStrength2() {
   const passwordContext = useContext(PasswordContext);
-  const [password, setPassword] = useState('ABCD');
   const [strength, setStrength] = useState(2);
   const [strengthText, setStrengthText] = useState('')
   console.log(passwordContext)
   // Create a function to calculate the password strength
+  
+  
   const calculatePasswordStrength = (password) => {
 let state = passwordContext.state;    
 

@@ -132,7 +132,8 @@ const GeneratePassword = () => {
     if(lowercaseFlag === false || uppercaseFlag === false || numberFlag === false || symbolFlag === false) {
       selectCharacters(options)
     }
-    return password;
+    password = password.join('')
+    passwordContext.dispatch({type: 'SET_PASSWORD', payload: password});
   }
 
   const findCommonElements = (password, optionArray) => {

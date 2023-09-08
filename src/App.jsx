@@ -11,7 +11,8 @@ const initialChoiceState = {
   lowercase: false,
   numbers: false,
   symbols: false, 
-  length: 0
+  length: 0,
+  password: ''
 }
 
 const reducer = (state, action) => {
@@ -26,6 +27,8 @@ const reducer = (state, action) => {
       return {...state, symbols: !state.symbols}
     case 'SET_LENGTH':
       return {...state, length: parseInt(action.payload)}
+    case 'SET_PASSWORD':
+      return {...state, password: action.payload}
     default: 
       return state
   }
@@ -43,7 +46,7 @@ function App() {
     <div className="bg-black">
       <div className="container flex flex-col items-center min-w-[90%]">
         <Header />
-        <PasswordOutput password={password} />
+        <PasswordOutput/>
         <PasswordInput />
        
       </div>

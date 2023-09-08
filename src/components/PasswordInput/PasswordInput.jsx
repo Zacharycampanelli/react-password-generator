@@ -10,7 +10,7 @@ const PasswordInput = () => {
        <Slider />
        <Checklist />
        {/* <StrengthMeter /> */}
-       <PasswordStrength2 password={'password'} />
+       <PasswordStrength2  />
        <GeneratePassword/>
     </div>
   )
