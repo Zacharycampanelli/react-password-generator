@@ -141,7 +141,7 @@ const GeneratePassword = () => {
   }
 
   return (
-    <button onClick={createOptions} className="w-full bg-green">
+    <button onClick={createOptions} className="w-full bg-green mt-4">
       <div className="flex items-center justify-center p-3">
         <p className="mr-1.5 text-xs">GENERATE</p>
         <ArrowIcon className="" />

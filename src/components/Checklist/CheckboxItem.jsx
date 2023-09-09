@@ -29,16 +29,16 @@ const CheckboxItem = ({ description, option }) => {
   };
 
   return (
-    <div className="my-4 flex">
+    <div className="my-4  flex">
       <Checkbox
         icon={<CheckedIcon />}
         onChange={handleDispatch}
         borderWidth="2"
-        borderColor={checked ? "border-green" : "border-white"}
+        borderColor={checked ? "" : ""}
         borderRadius="0"
-        className={checked ? "bg-green" : "bg-white"}
+        className={checked ? "border-green bg-green border-2" : "border-white bg-transparent border-2"}
       />
-      <p className="ml-6 text-white text-2xs">{description}</p>
+      <p className="ml-4 text-white text-2xs">{description}</p>
     </div>
   );
 };
