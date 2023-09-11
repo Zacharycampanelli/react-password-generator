@@ -1,10 +1,6 @@
 const Header = () => {
   return (
-    <>
-      <p className="text-2xs text-center text-gray pt-16">
-        Password Generator
-      </p>
-    </>
+    <p className="pt-16 text-center text-2xs text-gray">Password Generator</p>
   );
 };
 

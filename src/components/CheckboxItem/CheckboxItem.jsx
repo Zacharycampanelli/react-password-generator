@@ -36,9 +36,13 @@ const CheckboxItem = ({ description, option }) => {
         borderWidth="2"
         borderColor={checked ? "" : ""}
         borderRadius="0"
-        className={checked ? "border-green bg-green border-2" : "border-white bg-transparent border-2"}
+        className={
+          checked
+            ? "border-2 border-green bg-green"
+            : "border-2 border-white bg-transparent"
+        }
       />
-      <p className="ml-4 text-white text-2xs">{description}</p>
+      <p className="ml-4 text-2xs text-white">{description}</p>
     </div>
   );
 };

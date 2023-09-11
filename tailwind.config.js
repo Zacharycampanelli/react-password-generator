@@ -53,6 +53,5 @@ export default {
       "2xl": "43px",
     },
   },
-  plugins: [require("daisyui")],
 }
 };

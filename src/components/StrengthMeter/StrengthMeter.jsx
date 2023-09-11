@@ -1,33 +1,100 @@
-import PasswordStrengthBar from 'react-password-strength-bar';
+import React, { useState, useContext, useEffect } from "react";
+import { PasswordContext } from "../../App";
 
-const passwordStrengthCrit = [
-    {
-        level: 1,
-        value: 'TOO WEAK',
-        color: '#F64A4A'
+function StrengthMeter() {
+  const passwordContext = useContext(PasswordContext);
+  const [strength, setStrength] = useState(2);
+  const [strengthText, setStrengthText] = useState("");
+  // Create a function to calculate the password strength
+
+  useEffect(() => {
+    calculatePasswordStrength();
+  }, [passwordContext.state.password]);
+
+  const calculatePasswordStrength = () => {
+    let state = passwordContext.state;
+    let counter = 0;
+    let strengthTexts = ["TOO WEAK!", "WEAK", "MEDIUM", "STRONG"];
+
+    // Add a point for each checkbox option selected
+    for (let value in state) {
+      if (value === "password" || value === "length") continue;
+      if (state[value] === true) counter++;
     }
-]
 
+    // Earn a point if length is 8 or greater
+    if (state.length >= 8) {
+      counter++;
+    }
 
-const StrengthMeter = () => {
-    const password = 'asdffdfsddstdrtmrt';
+    // There are 4 options for password strength but 5 ways to improve the strength
+    // score. Password strength will be based on score 2-5
+    counter--;
+    setStrength(counter);
+
+    // Array is zero based, subtract 1 to align score with strengthText
+    counter--;
+    setStrengthText(strengthTexts[counter]);
+  };
+
+  const getFillColor = () => {
+    let fill = "";
+    switch (strength) {
+      case 1:
+        fill = "#F64A4A";
+        break;
+      case 2:
+        fill = "#FB7C58";
+        break;
+      case 3:
+        fill = "#F8CD65";
+        break;
+      case 4:
+        fill = "#A4FFAF";
+        break;
+      default:
+        fill = "transparent";
+        break;
+    }
+    return fill;
+  };
+
+  // Create a function to render the password strength meter segments
+  const renderSegments = () => {
+    const segments = [];
+    let fill = getFillColor();
+    for (let i = 0; i < 4; i++) {
+      const segmentColor = i < strength ? fill : "transparent";
+      const outline = i < strength ? "transparent" : "white";
+      segments.push(
+        <div
+          className="segment"
+          style={{
+            backgroundColor: segmentColor,
+            width: "0.5rem",
+            height: "1.5rem",
+            marginLeft: "0.35rem",
+            border: `2px solid ${outline}`,
+          }}
+          key={i}
+        ></div>,
+      );
+    }
+
+    return segments;
+  };
+
   return (
-    <div className="flex bg-black text-2xs text-gray justify-between p-4">
+    <div className="flex items-center justify-between bg-black p-4 text-2xs text-gray">
       <p>STRENGTH</p>
-
       <div className="flex">
-        <p className="text-xs text-white">MEDIUM</p>
-        <div className="flex justify-between">
-
-        <div className="border-solid border-2 border-white w-2.5 h-7 mx-1"></div>
-        <div className="border-solid border-2 border-white w-2.5 h-7 mx-1"></div>
-        <div className="border-solid border-2 border-white w-2.5 h-7 mx-1"></div>
-        <div className="border-solid border-2 border-white w-2.5 h-7 mx-1"></div>
+        <p className="text-xs text-white">{strengthText}</p>
+        <div id="password-strength-meter" className="flex flex-row ">
+          {renderSegments()}
         </div>
       </div>
-<PasswordStrengthBar password={password} barColoors={['red']} />
     </div>
-  )
+  );
 }
 
-export default StrengthMeter
+export default StrengthMeter;

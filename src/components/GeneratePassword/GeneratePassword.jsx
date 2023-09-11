@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { PasswordContext } from "../../App";
-
 import { ReactComponent as ArrowIcon } from "../../assets/images/icon-arrow-right.svg";
 const lower = [
   "a",
@@ -61,31 +60,14 @@ const upper = [
 const numeric = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 const special = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")"];
 
-// const getCharacter = [
-//   function upperCase() {
-//     return upper(Math.floor(Math.random() * upper.length))
-//   },
-//   function lowerCase() {
-//     return lower(Math.floor(Math.random() * lower.length))
-//   },
-//   function numbers() {
-//     return numeric(Math.floor(Math.random() * numeric.length))
-//   },
-//   function symbols() {
-//     return special(Math.floor(Math.random() * special.length))
-//   },
-// ]
-
 const GeneratePassword = () => {
   const passwordContext = useContext(PasswordContext);
 
   let state = passwordContext.state;
-  console.log(state);
 
   // Creates an array of possible choices for the final password
   const createOptions = () => {
     const options = [];
-    console.log(state.lowercase);
     if (state.lowercase) {
       options.push(...lower);
     }
@@ -114,37 +96,42 @@ const GeneratePassword = () => {
   // Verifies the password contains all requested options, otherwise recreates another password
   const verifyPassword = (password, options) => {
     let lowercaseFlag = true;
-    let uppercaseFlag = true; 
+    let uppercaseFlag = true;
     let numberFlag = true;
     let symbolFlag = true;
     if (state.lowercase) {
-       lowercaseFlag = findCommonElements(password, lower)
+      lowercaseFlag = findCommonElements(password, lower);
     }
     if (state.uppercase) {
-       uppercaseFlag = findCommonElements(password, upper)
+      uppercaseFlag = findCommonElements(password, upper);
     }
     if (state.numbers) {
-       numberFlag = findCommonElements(password, numeric)
+      numberFlag = findCommonElements(password, numeric);
     }
     if (state.symbols) {
-       symbolFlag = findCommonElements(password, special)
+      symbolFlag = findCommonElements(password, special);
     }
-    if(lowercaseFlag === false || uppercaseFlag === false || numberFlag === false || symbolFlag === false) {
-      selectCharacters(options)
+    if (
+      lowercaseFlag === false ||
+      uppercaseFlag === false ||
+      numberFlag === false ||
+      symbolFlag === false
+    ) {
+      selectCharacters(options);
     }
-    password = password.join('')
-    passwordContext.dispatch({type: 'SET_PASSWORD', payload: password});
-  }
+    password = password.join("");
+    passwordContext.dispatch({ type: "SET_PASSWORD", payload: password });
+  };
 
   const findCommonElements = (password, optionArray) => {
-    return optionArray.some(item => password.includes(item))
-  }
+    return optionArray.some((item) => password.includes(item));
+  };
 
   return (
-    <button onClick={createOptions} className="w-full bg-green mt-4">
-      <div className="flex items-center justify-center p-3">
+    <button onClick={createOptions} className="mt-4 w-full bg-green">
+      <div className="flex items-center justify-center p-5">
         <p className="mr-1.5 text-xs">GENERATE</p>
-        <ArrowIcon className="" />
+        <ArrowIcon />
       </div>
     </button>
   );
