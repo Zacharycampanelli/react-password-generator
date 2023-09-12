@@ -24,7 +24,7 @@ function Slider() {
         </label>
         <p className="text-md text-green">{passwordContext.state.length}</p>
       </div>
-      <div className="relative  mt-5 h-2 rounded-full bg-black">
+      <div className="bg-veryDarkGray  relative mt-5 h-2 rounded-full">
         <div className="absolute h-2 rounded-full bg-green " style={fillStyle}></div>
       </div>
       <input

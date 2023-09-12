@@ -38,7 +38,7 @@ function App() {
 
   return (
     <PasswordContext.Provider value={{ state, dispatch }}>
-      <div className="flex flex-col items-center justify-center bg-black">
+      <div className="bg-black flex flex-col items-center justify-center">
         <Header />
         <PasswordOutput />
         <PasswordInput />

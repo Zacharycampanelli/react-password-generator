@@ -31,10 +31,10 @@ function StrengthMeter() {
     // score. Password strength will be based on score 2-5
     counter--;
     // If first run of application, stops meter from giving a score
-    if (passwordContext.state.password === 0) counter = -1
-    // If only one option selected and length is less than 8, ensures user is still given a score 
-    if(counter === 0) counter = 1
-    console.log(counter)
+    if (passwordContext.state.password === 0) counter = -1;
+    // If only one option selected and length is less than 8, ensures user is still given a score
+    if (counter === 0) counter = 1;
+    console.log(counter);
     setStrength(counter);
 
     // Array is zero based, subtract 1 to align score with strengthText
@@ -92,7 +92,7 @@ function StrengthMeter() {
   };
 
   return (
-    <div className="flex items-center justify-between mt-8 mb-4 bg-black p-4 text-2xs text-gray md:text-xs md:mb-8 md:p-6">
+    <div className="bg-veryDarkGray mb-4 mt-8 flex items-center justify-between p-4 text-2xs text-gray md:mb-8 md:p-6 md:text-xs">
       <p>STRENGTH</p>
       <div className="flex justify-items-center">
         <p className="text-xs text-white md:text-md">{strengthText}</p>
