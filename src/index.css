@@ -2,57 +2,55 @@
 @tailwind components;
 @tailwind utilities;
 
-#check-box-1:checked ~ .check-1{
-  @apply text-opacity-100;
-}
-
 @layer base {
-    html {
-        font-family: "JetBrains Mono", "monospace";
-    }
+  html {
+    font-family: 'JetBrains Mono', 'monospace';
+  }
 
-    #slider {
-        -webkit-appearance: none;
-        appearance: none; 
-        cursor: pointer;
-        outline: none;
-        background: none;
-        
-      }
-      
-      #slider::-webkit-slider-runnable-track {
-        height: 15px;
-        background: none;
-        /* border-radius: 16px;  */
-        z-index: 10;
-      }
-      
-      #slider::-moz-range-track {
-        height: 15px;
-        background: none;
-        /* border-radius: 16px; */
-        z-index: 10;
-      
-      }
-      
-      #slider::-webkit-slider-thumb {
-        -webkit-appearance: none;
-        appearance: none; 
-        height: 15px;
-        width: 15px;
-        background-color: white;
-        border-radius: 50%;
-        z-index: 20;
-        margin-top: -20px;
-      }
-      
-      #slider::-moz-range-thumb {
-        height: 15px;
-        width: 15px;
-        background-color: white;
-        border-radius: 50%;
-        z-index: 20;
-        margin-top: -30px;
-        position: absolute;
-      }
+  #check-box-1:checked ~ .check-1 {
+    @apply text-opacity-100;
+  }
+
+  #slider {
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    outline: none;
+    background: none;
+  }
+
+  #slider::-webkit-slider-runnable-track {
+    height: 15px;
+    background: none;
+    /* border-radius: 16px;  */
+    z-index: 10;
+  }
+
+  #slider::-moz-range-track {
+    height: 15px;
+    background: none;
+    /* border-radius: 16px; */
+    z-index: 10;
+  }
+
+  #slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 15px;
+    width: 15px;
+    background-color: white;
+    border-radius: 50%;
+    z-index: 20;
+    margin-top: -20px;
+  }
+
+  #slider::-moz-range-thumb {
+    height: 15px;
+    width: 15px;
+    background-color: white;
+    border-radius: 50%;
+    z-index: 20;
+    margin-top: -30px;
+    position: absolute;
+  }
 }

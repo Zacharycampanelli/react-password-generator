@@ -1,64 +1,64 @@
-import { useContext } from "react";
-import { PasswordContext } from "../../App";
-import { ReactComponent as ArrowIcon } from "../../assets/images/icon-arrow-right.svg";
+import { useContext } from 'react';
+import { PasswordContext } from '../../App';
+import { ReactComponent as ArrowIcon } from '../../assets/images/icon-arrow-right.svg';
 const lower = [
-  "a",
-  "b",
-  "c",
-  "d",
-  "e",
-  "f",
-  "g",
-  "h",
-  "i",
-  "j",
-  "k",
-  "l",
-  "m",
-  "n",
-  "o",
-  "p",
-  "q",
-  "r",
-  "s",
-  "t",
-  "u",
-  "v",
-  "w",
-  "x",
-  "y",
-  "z",
+  'a',
+  'b',
+  'c',
+  'd',
+  'e',
+  'f',
+  'g',
+  'h',
+  'i',
+  'j',
+  'k',
+  'l',
+  'm',
+  'n',
+  'o',
+  'p',
+  'q',
+  'r',
+  's',
+  't',
+  'u',
+  'v',
+  'w',
+  'x',
+  'y',
+  'z',
 ];
 const upper = [
-  "A",
-  "B",
-  "C",
-  "D",
-  "E",
-  "F",
-  "G",
-  "H",
-  "I",
-  "J",
-  "K",
-  "L",
-  "M",
-  "N",
-  "O",
-  "P",
-  "Q",
-  "R",
-  "S",
-  "T",
-  "U",
-  "V",
-  "W",
-  "X",
-  "Y",
-  "Z",
+  'A',
+  'B',
+  'C',
+  'D',
+  'E',
+  'F',
+  'G',
+  'H',
+  'I',
+  'J',
+  'K',
+  'L',
+  'M',
+  'N',
+  'O',
+  'P',
+  'Q',
+  'R',
+  'S',
+  'T',
+  'U',
+  'V',
+  'W',
+  'X',
+  'Y',
+  'Z',
 ];
-const numeric = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
-const special = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")"];
+const numeric = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
+const special = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')'];
 
 const GeneratePassword = () => {
   const passwordContext = useContext(PasswordContext);
@@ -119,8 +119,8 @@ const GeneratePassword = () => {
     ) {
       selectCharacters(options);
     }
-    password = password.join("");
-    passwordContext.dispatch({ type: "SET_PASSWORD", payload: password });
+    password = password.join('');
+    passwordContext.dispatch({ type: 'SET_PASSWORD', payload: password });
   };
 
   const findCommonElements = (password, optionArray) => {
@@ -128,9 +128,9 @@ const GeneratePassword = () => {
   };
 
   return (
-    <button onClick={createOptions} className="mt-4 w-full bg-green">
+    <button onClick={createOptions} className="mb-4 w-full bg-green md:mb-6">
       <div className="flex items-center justify-center p-5">
-        <p className="mr-1.5 text-xs">GENERATE</p>
+        <p className="mr-1.5 text-2xs md:text-xs">GENERATE</p>
         <ArrowIcon />
       </div>
     </button>

@@ -1,7 +1,7 @@
-import { useState, useContext } from "react";
-import { ReactComponent as CheckedIcon } from "../../assets/images/icon-check.svg";
-import Checkbox from "react-custom-checkbox";
-import { PasswordContext } from "../../App";
+import { useState, useContext } from 'react';
+import { ReactComponent as CheckedIcon } from '../../assets/images/icon-check.svg';
+import Checkbox from 'react-custom-checkbox';
+import { PasswordContext } from '../../App';
 
 const CheckboxItem = ({ description, option }) => {
   const passwordContext = useContext(PasswordContext);
@@ -13,17 +13,17 @@ const CheckboxItem = ({ description, option }) => {
   const handleDispatch = () => {
     setChecked(!checked);
     switch (option) {
-      case "uppercase":
-        passwordContext.dispatch({ type: "USE_UPPERCASE" });
+      case 'uppercase':
+        passwordContext.dispatch({ type: 'USE_UPPERCASE' });
         break;
-      case "lowercase":
-        passwordContext.dispatch({ type: "USE_LOWERCASE" });
+      case 'lowercase':
+        passwordContext.dispatch({ type: 'USE_LOWERCASE' });
         break;
-      case "numbers":
-        passwordContext.dispatch({ type: "USE_NUMBERS" });
+      case 'numbers':
+        passwordContext.dispatch({ type: 'USE_NUMBERS' });
         break;
-      case "symbols":
-        passwordContext.dispatch({ type: "USE_SYMBOLS" });
+      case 'symbols':
+        passwordContext.dispatch({ type: 'USE_SYMBOLS' });
         break;
     }
   };
@@ -34,15 +34,15 @@ const CheckboxItem = ({ description, option }) => {
         icon={<CheckedIcon />}
         onChange={handleDispatch}
         borderWidth="2"
-        borderColor={checked ? "" : ""}
+        borderColor={checked ? '' : ''}
         borderRadius="0"
         className={
           checked
-            ? "border-2 border-green bg-green"
-            : "border-2 border-white bg-transparent"
+            ? 'border-2 border-green bg-green'
+            : 'border-2 border-white bg-transparent'
         }
       />
-      <p className="ml-4 text-2xs text-white">{description}</p>
+      <p className="ml-4 text-2xs text-white md:text-xs">{description}</p>
     </div>
   );
 };
