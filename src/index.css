@@ -36,21 +36,31 @@
   #slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    height: 15px;
-    width: 15px;
+    height: 28px;
+    width: 28px;
     background-color: white;
     border-radius: 50%;
     z-index: 20;
-    margin-top: -20px;
+    margin-top: -25px;
+  }
+
+  #slider::-webkit-slider-thumb:hover {
+    background-color: #24232C;
+    border: 3px solid #A4FFAF;
   }
 
   #slider::-moz-range-thumb {
-    height: 15px;
-    width: 15px;
+    height: 28px;
+    width: 28px;
     background-color: white;
     border-radius: 50%;
     z-index: 20;
-    margin-top: -30px;
+    margin-top: -25px;
     position: absolute;
+  }
+
+  #slider::-moz-range-thumb:hover {
+    background-color: #24232C;
+    border: 3px solid #A4FFAF;
   }
 }

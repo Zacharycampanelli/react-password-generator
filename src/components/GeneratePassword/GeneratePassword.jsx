@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import { PasswordContext } from '../../App';
-import { ReactComponent as ArrowIcon } from '../../assets/images/icon-arrow-right.svg';
+// import { ReactComponent as ArrowIcon } from '../../assets/images/icon-arrow-right.svg';
+import ArrowRightIcon from '../../assets/images/ArrowRightIcon';
 const lower = [
   'a',
   'b',
@@ -128,10 +129,10 @@ const GeneratePassword = () => {
   };
 
   return (
-    <button onClick={createOptions} className="mb-4 w-full bg-green md:mb-6">
-      <div className="flex items-center justify-center p-5">
-        <p className="mr-1.5 text-2xs md:text-xs">GENERATE</p>
-        <ArrowIcon />
+    <button onClick={createOptions} className="mb-4 w-full bg-green md:mb-6 hover:bg-transparent hover:border-2 hover:border-solid hover:border-green">
+      <div className="group flex items-center justify-center p-5">
+        <p className="mr-1.5 text-2xs text-darkGray group-hover:text-green md:text-xs">GENERATE</p>
+        <ArrowRightIcon />
       </div>
     </button>
   );
