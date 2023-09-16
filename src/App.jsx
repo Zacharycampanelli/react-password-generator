@@ -12,6 +12,7 @@ const initialChoiceState = {
   symbols: false,
   length: 0,
   password: '',
+  copied: false,
 };
 
 const reducer = (state, action) => {
@@ -28,6 +29,8 @@ const reducer = (state, action) => {
       return { ...state, length: parseInt(action.payload) };
     case 'SET_PASSWORD':
       return { ...state, password: action.payload };
+    case 'SET_COPIED': 
+      return { ...state, copied: !state.copied}
     default:
       return state;
   }
@@ -38,7 +41,7 @@ function App() {
 
   return (
     <PasswordContext.Provider value={{ state, dispatch }}>
-      <div className="bg-black flex flex-col items-center justify-center">
+      <div className="bg-black flex flex-col items-center justify-center h-screen">
         <Header />
         <PasswordOutput />
         <PasswordInput />

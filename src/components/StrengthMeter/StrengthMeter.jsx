@@ -34,7 +34,6 @@ function StrengthMeter() {
     if (passwordContext.state.password === 0) counter = -1;
     // If only one option selected and length is less than 8, ensures user is still given a score
     if (counter === 0) counter = 1;
-    console.log(counter);
     setStrength(counter);
 
     // Array is zero based, subtract 1 to align score with strengthText
@@ -78,9 +77,7 @@ function StrengthMeter() {
           style={{
             backgroundColor: segmentColor,
             width: '0.6rem',
-            // height: '1.5rem',
             marginLeft: '0.35rem',
-            // marginTop: '0.1rem',
             border: `2px solid ${outline}`,
           }}
           key={i}
