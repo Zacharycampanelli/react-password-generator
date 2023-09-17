@@ -2,6 +2,7 @@ import { createContext, useReducer } from 'react';
 import Header from './components/Header/Header';
 import PasswordOutput from './components/PasswordOutput/PasswordOutput';
 import PasswordInput from './components/PasswordInput/PasswordInput';
+import Attribution from './components/Attribution/Attribution';
 
 export const PasswordContext = createContext();
 
@@ -30,7 +31,7 @@ const reducer = (state, action) => {
     case 'SET_PASSWORD':
       return { ...state, password: action.payload };
     case 'SET_COPIED': 
-      return { ...state, copied: !state.copied}
+      return { ...state, copied: action.payload}
     default:
       return state;
   }
@@ -46,6 +47,7 @@ function App() {
         <PasswordOutput />
         <PasswordInput />
       </div>
+      <Attribution />
     </PasswordContext.Provider>
   );
 }

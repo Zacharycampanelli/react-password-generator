@@ -1,6 +1,5 @@
 import { useContext, useState } from 'react';
 import { PasswordContext } from '../../App';
-// import { ReactComponent as ArrowIcon } from '../../assets/images/icon-arrow-right.svg';
 import ArrowRightIcon from '../../assets/images/ArrowRightIcon';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
 const lower = [
@@ -136,6 +135,8 @@ const GeneratePassword = () => {
       setError('');
       password = password.join('');
       passwordContext.dispatch({ type: 'SET_PASSWORD', payload: password });
+      passwordContext.dispatch({ type: 'SET_COPIED', payload: '' });
+      
     
   };
 

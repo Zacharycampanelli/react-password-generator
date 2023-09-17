@@ -1,21 +1,16 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { PasswordContext } from '../../App';
 import CopyIcon from '../../assets/images/CopyIcon';
-// import { ReactComponent as CopyIcon } from '../../assets/images/icon-copy.svg';
 
 const PasswordOutput = () => {
   const passwordContext = useContext(PasswordContext);
 
-  const [copyText, setCopyText] = useState('');
 
   const copyButtonHandler = () => {
     if (passwordContext.state.password.length > 0) {
       navigator.clipboard.writeText(passwordContext.state.password);
-      setCopyText('COPIED');
-      passwordContext.dispatch({ type: 'SET_COPIED' });
-    } else if (passwordContext.state.password !== '') {
+      passwordContext.dispatch({ type: 'SET_COPIED', payload: 'COPIED' });
     }
-    console.log(passwordContext.state.copied)
   };
 
   return (
@@ -29,7 +24,7 @@ const PasswordOutput = () => {
       />
       <div>
         <span className="absolute right-10 top-10 ml-4 text-xs text-green md:right-16 md:top-16">
-          {copyText}
+          {passwordContext.state.copied}
         </span>
         <button
           className="backgroundColor:white absolute right-10  top-10 fill-white md:right-8 md:top-16"

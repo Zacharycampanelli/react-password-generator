@@ -1,5 +1,5 @@
 import { useState, useContext } from 'react';
-import { ReactComponent as CheckedIcon } from '../../assets/images/icon-check.svg';
+import CheckedIcon from '../../assets/images/CheckIcon';
 import Checkbox from 'react-custom-checkbox';
 import { PasswordContext } from '../../App';
 
