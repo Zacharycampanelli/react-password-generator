@@ -33,7 +33,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Solution URL: [Zacharycampanelli/react-password-generator](https://github.com/Zacharycampanelli/react-password-generator)
 - Live Site URL: [Add live site URL here](https://your-live-site-url.com)
 
 ## My process
